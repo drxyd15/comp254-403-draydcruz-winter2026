@@ -20,7 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package exercise1;
+package linkedlists;
 
 /**
  * A basic doubly linked list implementation.
@@ -30,7 +30,8 @@ package exercise1;
  * @author Michael H. Goldwasser
  */
 public class DoublyLinkedList<E> {
-    
+
+  //---------------- nested Node class ----------------
   /**
    * Node of a doubly linked list, which stores a reference to its
    * element and to both the previous and next node in the list.
@@ -222,47 +223,19 @@ public class DoublyLinkedList<E> {
     sb.append(")");
     return sb.toString();
   }
-
-  //Concatenates list M onto the end of this list After the operation, M becomes empty.
-
-    public void concatenate(DoublyLinkedList<E> M) {
-        if (M.isEmpty()) return;          // nothing to do
-
-        // link last real node of this list to first real node of M
-        this.trailer.getPrev().setNext(M.header.getNext());
-        M.header.getNext().setPrev(this.trailer.getPrev());
-
-        // update trailer
-        this.trailer = M.trailer;
-
-        // update size
-        this.size += M.size;
-
-        // make M empty (optional but good practice)
-        M.header.setNext(M.trailer);
-        M.trailer.setPrev(M.header);
-        M.size = 0;
-    }
-
 //main method
   public static void main(String[] args)
   {
-      DoublyLinkedList<String> L = new DoublyLinkedList<>();
-      L.addLast("A");
-      L.addLast("B");
-      L.addLast("C");
-
-      DoublyLinkedList<String> M = new DoublyLinkedList<>();
-      M.addLast("D");
-      M.addLast("E");
-      M.addLast("F");
-
-      System.out.println("List L before: " + L);
-      System.out.println("List M before: " + M);
-
-      L.concatenate(M);
-
-      System.out.println("List L after concatenation: " + L);
-      System.out.println("List M after concatenation (should be empty): " + M);
+	  //create and populate a doubly linked list
+	  DoublyLinkedList<String> list = new DoublyLinkedList<String>();
+	  list.addFirst("MSP");
+	  list.addLast("ATL");
+	  list.addLast("BOS");
+	  //
+	  list.addFirst("LAX");
+	  
+	  System.out.println(list);
+	  System.out.println(list.first());
+	  //
   }
-}
+} //----------- end of DoublyLinkedList class -----------
