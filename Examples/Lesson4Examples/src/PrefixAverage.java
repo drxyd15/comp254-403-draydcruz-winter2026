@@ -20,7 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
+package exercise2;
 /**
  * Demonstration of algorithms for computing the prefix averages of an array.
  *
@@ -28,7 +28,7 @@
  * @author Roberto Tamassia
  * @author Michael H. Goldwasser
  */
-class PrefixAverage {
+public class PrefixAverage {
 
   /** Returns an array a such that, for all j, a[j] equals the average of x[0], ..., x[j]. */
   public static double[] prefixAverage1(double[] x) {
