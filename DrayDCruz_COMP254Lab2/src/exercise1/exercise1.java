@@ -25,13 +25,11 @@ public class exercise1 {
         // Step 4: 1 op
 
         // 5n + 4
-        //Drop constant and keep 5n (largest growth)
+        // Drop constant and keep 5n (largest growth)
         // 5n
         // Drop 5 from n since Big Oh ignores constant multipliers (growth rate is consistent no matter the constant)
         // left with just n therefore the Big Oh characterization would be
         // Big-Oh = O(n)
-
-
 
         /** Returns the sum of the integers with even index in given array. */
         public static int example2(int[] arr) {
@@ -46,7 +44,7 @@ public class exercise1 {
         // Step 3: 3n/2 ops
         // Step 4: 1 op
 
-        // Since n is real 2n/2 convert back to fraction to add
+        // Since n is really 2n/2 convert back to fraction to add
         // 2n/2 +3n/2 + 4
         // = 5n/2 + 4
         // Ignore constant multipliers/dividers Drop  5/2 +4
@@ -71,9 +69,6 @@ public class exercise1 {
         // Since we know n^2 is the highest term we know that the Big Oh will be
         // Big Oh: O(n^2)
 
-
-
-
         /** Returns the sum of the prefix sums of given array. */
         public static int example4(int[] arr) {
             int n = arr.length, prefix = 0, total = 0;
@@ -89,7 +84,6 @@ public class exercise1 {
         // Step 3: 3n ops
         // Step 4: 2n ops
         // Step 5: 1 op
-
         // 7n + 5
         // Big Oh: O(n)
 
@@ -110,12 +104,13 @@ public class exercise1 {
         // Step 1: 3 ops
         // Step 2: 2n ops
         // Step 3: 1n or n ops
-        // Step 4: 2n^2 ops
-        // Step 5: 2n^3 ops
-        // Step 6:
-        // Step 7:
-        // Step 8:
+        // Step 4: 2n ops (how many times j runs)
+        // Step 5: n(n+1)/2 ops (how many times k runs)
+        // Step 6: n(n+1)/2 ops (how many times statement inside k loop runs)
+        // Step 7:(n^3 + n^2)/2 ops
+        // Step 8: 1 op
 
+        //Dominant term is n^3 so we know Big-O = O(n^3)
     }
 
 }

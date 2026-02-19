@@ -30,70 +30,99 @@ package exercise2;
  */
 public class exercise2 {
 
-    /** Returns an array a such that, for all j, a[j] equals the average of x[0], ..., x[j]. */
+    /**
+     * Returns an array a such that, for all j, a[j] equals the average of x[0], ..., x[j].
+     */
     public static double[] prefixAverage1(double[] x) {
         int n = x.length;
         double[] a = new double[n];    // filled with zeros by default
-        for (int j=0; j < n; j++) {
+        for (int j = 0; j < n; j++) {
             double total = 0;            // begin computing x[0] + ... + x[j]
-            for (int i=0; i <= j; i++)
+            for (int i = 0; i <= j; i++)
                 total += x[i];
-            a[j] = total / (j+1);        // record the average
+            a[j] = total / (j + 1);        // record the average
         }
         return a;
     }
 
-    /** Returns an array a such that, for all j, a[j] equals the average of x[0], ..., x[j]. */
+    /**
+     * Returns an array a such that, for all j, a[j] equals the average of x[0], ..., x[j].
+     */
     public static double[] prefixAverage2(double[] x) {
         int n = x.length;
         double[] a = new double[n];    // filled with zeros by default
         double total = 0;              // compute prefix sum as x[0] + x[1] + ...
-        for (int j=0; j < n; j++) {
+        for (int j = 0; j < n; j++) {
             total += x[j];               // update prefix sum to include x[j]
-            a[j] = total / (j+1);        // compute average based on current sum
+            a[j] = total / (j + 1);        // compute average based on current sum
         }
         return a;
     }
 
     public static void main(String[] args) {
 
-        int n = 10000;     // starting value
-        int trials = 10;   // how many times to double
+        int n = 10000;     // starting size of array (input size)
+        int trials = 10;   // how many times the test is run
 
-        System.out.println("Testing prefixAverage2..."); // test average2
+        // Testing the faster algorithm (Linear)
+        System.out.println("Testing prefixAverage2...");
+
+        // repeat the test multiple times
         for (int t = 0; t < trials; t++) {
 
+            // create an array of size n
             double[] data = new double[n];
-            for (int i = 0; i < n; i++)
-                data[i] = i;   // fill array
 
+            // fill the array with values (0,1,2,3 etc.)
+            for (int i = 0; i < n; i++)
+                data[i] = i;
+
+            // record start time before running the algorithm
             long start = System.currentTimeMillis();
+
+            // run the algorithm we want to measure
             prefixAverage2(data);
+
+            // record time after it finishes
             long end = System.currentTimeMillis();
 
+            // print how long it took
             System.out.println("n = " + n + " took " + (end - start) + " ms");
 
-            n *= 2;  // double n
+            // double the input size for the next trial to help see how runtime grows
+            n *= 2;
         }
 
-        System.out.println("\nTesting prefixAverage1..."); // Test average1
-        n = 10000;   // reset
+        // Testing slower algorithm (Quadratic)
+        System.out.println("\nTesting prefixAverage1...");
+
+        n = 10000;   // reset n back to the starting size
 
         for (int t = 0; t < trials; t++) {
 
+            // create and fill array again
             double[] data = new double[n];
             for (int i = 0; i < n; i++)
                 data[i] = i;
 
+            // start timing
             long start = System.currentTimeMillis();
+
+            // run slower algorithm
             prefixAverage1(data);
+
+            // stop timing
             long end = System.currentTimeMillis();
 
+            // print result
             System.out.println("n = " + n + " took " + (end - start) + " ms");
 
+            // double size again for next test
             n *= 2;
         }
     }
+}
+
  /*
     Both prefixAverage1 and prefixAverage2 were both tested by creating an array of size n and measuring
     how long each method took to run. From the results, prefixAverage1 becomes slow very quickly as n increases
@@ -104,4 +133,4 @@ public class exercise2 {
     of recalculating everything every time, so it only needs one loop. This means its time complexity is O(n).
     Overall, the test results show that prefixAverage2 is much more efficient than prefixAverage1 for larger input sizes.
  */
-}
+
