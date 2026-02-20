@@ -1,7 +1,6 @@
 package exercise1;
 
-public class exercise1 {
-
+class exercise1 {
     /**
      * Code for end-of-chapter exercises on asymptotics.
      *
@@ -9,7 +8,6 @@ public class exercise1 {
      * @author Roberto Tamassia
      * @author Michael H. Goldwasser
      */
-    class Exercises {
 
         /** Returns the sum of the integers in given array. */
         public static int example1(int[] arr) {
@@ -62,8 +60,8 @@ public class exercise1 {
 
         // Step 1: 3 ops
         // Step 2: 2n ops
-        // Step 3: n^2 ops (formally n(n+1))
-        // Step 4: 3n(n+1)/2 ops
+        // Step 3: n^2/2 ops (formally n(n+1))
+        // Step 4: n(n+1)/2 ops
         // Step 5: 1 op
 
         // Since we know n^2 is the highest term we know that the Big Oh will be
@@ -113,4 +111,4 @@ public class exercise1 {
         //Dominant term is n^3 so we know Big-O = O(n^3)
     }
 
-}
+

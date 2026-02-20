@@ -34,11 +34,11 @@ class exercise3 {
 
     public static void main(String[] args) {
 
-        int n = 730000;   // change number manually each time (730 000 or 500 000 000)
+        int n = 730000;   // change number manually each time (730 000 (unique1) or 500 000 000 (unique2) max)
 
         int[] data = new int[n]; // create array of integers
 
-        // fill array with unique values
+        // fill array with different values
         for (int i = 0; i < n; i++) {
             data[i] = i;
         }
@@ -52,7 +52,7 @@ class exercise3 {
 }
 
 // For this exercise I tested unique1 and unique2, gradually increasing n so each runtime is approx. 60s or just under.
-// After testing multiple numbers The results concluded unique1 max n was approx. 730,000 (57 seconds, under 60 seconds).
+// After testing multiple numbers The results concluded unique1 max n was approx. 730,000 (57 seconds).
 // The highest unique2 max for n was approx 500,000,000 (1.921 seconds). Due to limited memory,
 // larger values could not be tested for unique2 because the program throws a heap memory error.
 // Therefore, approx 500,000,000 is the largest effective n on my machine.
